@@ -1,0 +1,30 @@
+@import '../variables';
+
+header {
+  background: $primary-color;
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  letter-spacing: 2px;
+
+  nav {
+    margin: 0 auto;
+    height: inherit;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    ul {
+      li {
+        margin-right: 1.5em;
+        a {
+          text-transform: uppercase;
+          color: $link-on-primary-color;
+        }
+      }
+    }
+
+  }
+
+}

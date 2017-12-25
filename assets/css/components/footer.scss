@@ -1,0 +1,22 @@
+@import '../variables';
+
+footer[id='app-footer']{
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  background: $primary-color;
+  width: 100%;
+  color: $link-on-primary-color;
+  letter-spacing: 1px;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+  }
+
+  a {
+    color: $link-on-primary-color
+  }
+}
