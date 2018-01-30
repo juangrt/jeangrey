@@ -26,3 +26,6 @@ npm-debug.log
 # variables.
 /config/*.secret.exs
 .DS_Store
+*.sublime-workspace
+*.sublime-project
+.env

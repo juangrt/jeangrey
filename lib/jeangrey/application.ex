@@ -15,7 +15,7 @@ defmodule Jeangrey.Application do
       # Start your own worker by calling: Jeangrey.Worker.start_link(arg1, arg2, arg3)
       # worker(Jeangrey.Worker, [arg1, arg2, arg3]),
     ]
-
+    
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Jeangrey.Supervisor]

@@ -30,6 +30,10 @@ config :jeangrey, Jeangrey.Repo,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :jeangrey, Jeangrey.Auth.Guardian,
+       issuer: "jeangrey",
+       secret_key: System.get_env("GUARDIAN_KEY")
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

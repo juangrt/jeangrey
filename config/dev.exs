@@ -14,6 +14,10 @@ config :jeangrey, JeangreyWeb.Endpoint,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../assets", __DIR__)]]
 
+config :jeangrey, Jeangrey.Auth.Guardian,
+       issuer: "jeangrey",
+       secret_key: System.get_env("GUARDIAN_KEY")
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
