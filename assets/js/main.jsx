@@ -5,6 +5,7 @@ import AppHeader from "./components/header";
 import AppFooter from "./components/footer";
 import Home from "./pages/home/home";
 import Blog from "./pages/blog/blog";
+import Login from "./pages/login/login"
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 class JeadGreyApp extends React.Component {
@@ -19,6 +20,7 @@ class JeadGreyApp extends React.Component {
           </div>
           <main role="main" className="container">
             <Route exact path="/" component={Home}/>
+            <Route exact path="/login" component={Login}/>
             <Route path="/blog" component={Blog}/>
           </main>
           <AppFooter></AppFooter>

@@ -23,12 +23,6 @@ defmodule JeangreyWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  scope "/", JeangreyWeb do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
-  end
-
   scope "/api", JeangreyWeb , as: :api do
     pipe_through [:api , :auth, :ensure_auth]
     scope "/v1" , Api.V1, as: :v1 do
@@ -44,6 +38,12 @@ defmodule JeangreyWeb.Router do
       post "/login", SessionController, :login
       post "/logout", SessionController, :logout
     end
+  end
+
+  scope "/", JeangreyWeb do
+    pipe_through :browser # Use the default browser stack
+
+    get "/*path", PageController, :index
   end
 
 

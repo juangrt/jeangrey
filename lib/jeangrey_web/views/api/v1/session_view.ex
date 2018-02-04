@@ -6,7 +6,7 @@ defmodule JeangreyWeb.Api.V1.SessionView do
     %{
       success: true,
       info: "Logged In",
-      login_landing_page: "/admin"
+      redirect_url: "/admin"
     }
   end
 
