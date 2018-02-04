@@ -7,7 +7,7 @@ defmodule Mix.Tasks.Create.User do
   @moduledoc """
     Creates a new user w/ params
     --email    | Unique Email of New User
-    --password | Password for New User
+    --password | Password for  New User
   """
 
   def run(args) do

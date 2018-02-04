@@ -24,7 +24,7 @@ defmodule JeangreyWeb.Api.V1.SessionController do
   defp login_reply({:ok, user}, conn) do
     conn
     |> Guardian.Plug.sign_in(user)
-    |> render "login.json", %{}
+    |> render("login.json", %{})
   end
 
   defp user_unauthorized(conn) do
