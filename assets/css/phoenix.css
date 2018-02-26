@@ -21,9 +21,5 @@ body {
   height: 100%;
 }
 
-main {
-  margin-top: 70px;
-}
-
 /* Phoenix flash messages */
 .alert:empty { display: none; }

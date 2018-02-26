@@ -1,0 +1,14 @@
+const constants = {
+  LOG_IN: 'LOG_IN',
+  LOG_OUT: 'LOG_OUT',
+  LOADING: 'LOADING',
+  LOADING_CANCEL: 'LOADING_CANCEL',
+  ADD_POST: 'ADD_POST',
+  REMOVE_POST: 'REMOVE_POST',
+  ADD_COMMENT: 'ADD_COMMENT',
+  REMOVE_COMMENT: 'REMOVE_COMMENT',
+  ADD_ERROR: 'ADD_ERROR'
+}
+
+
+export default constants;
