@@ -14,10 +14,6 @@ config :jeangrey, JeangreyWeb.Endpoint,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../assets", __DIR__)]]
 
-config :jeangrey, Jeangrey.Auth.Guardian,
-       issuer: "jeangrey",
-       secret_key: System.get_env("GUARDIAN_KEY")
-
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
@@ -33,6 +29,7 @@ config :jeangrey, Jeangrey.Auth.Guardian,
 # If desired, both `http:` and `https:` keys can be
 # configured to run both http and https servers on
 # different ports.
+
 
 # Watch static and templates for browser reloading.
 config :jeangrey, JeangreyWeb.Endpoint,
@@ -60,3 +57,5 @@ config :jeangrey, Jeangrey.Repo,
   database: "jeangrey_dev",
   hostname: "localhost",
   pool_size: 10
+
+import_config "dev.secret.exs"

@@ -6,7 +6,6 @@ defmodule Jeangrey.Accounts do
   import Ecto.Query, warn: false
   alias Jeangrey.Repo
   alias Jeangrey.Accounts.User
-  alias Comeonin.Bcrypt
 
   @doc """
   Returns the list of users.

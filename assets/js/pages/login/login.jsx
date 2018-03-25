@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
-import { login } from '../../actions'
+import { login, addError } from '../../actions'
 import { Redirect } from 'react-router-dom'
 
 const mapStateToProps = (state, props) => 
@@ -14,13 +14,15 @@ const mapDispatchToProps = dispatch =>
   ({
     onLogin({email, password}) {
       return dispatch(login(email, password))
+    },
+    onAddError({id, message}) {
+      return dispatch(addError(id, message))
     }
   })
 
 class Login extends React.Component {
   constructor(props) {
     super(props)
-    this.onLogin = props.onLogin;
     this.state = {email: '' , password: ''}
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -32,8 +34,10 @@ class Login extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    this.onLogin({email: this.state.email, password: this.state.password}).then( response => {
+    this.props.onLogin({email: this.state.email, password: this.state.password}).then( response => {
       this.props.history.push(response.data.redirect_url)
+    }).catch( error => {
+      this.props.onAddError({ id: 'login', message: 'Incorrect username or password' })
     })
   }
 
@@ -68,7 +72,8 @@ class Login extends React.Component {
 
 
 Login.propTypes = {
-    onLogin: PropTypes.func
+    onLogin: PropTypes.func,
+    onAddError: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login) 
