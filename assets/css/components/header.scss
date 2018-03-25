@@ -7,6 +7,7 @@ header {
   position: fixed;
   top: 0;
   letter-spacing: 2px;
+  z-index: 999;
 
   nav {
     margin: 0 auto;
@@ -18,9 +19,15 @@ header {
     ul {
       li {
         margin-right: 1.5em;
+        font-size: 14px;
         a {
           text-transform: uppercase;
           color: $link-on-primary-color;
+          &:hover {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+          }
         }
       }
     }

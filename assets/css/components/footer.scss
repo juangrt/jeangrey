@@ -8,6 +8,7 @@ footer[id='app-footer']{
   width: 100%;
   color: $link-on-primary-color;
   letter-spacing: 1px;
+  z-index: 999;
 
   & > div {
     display: flex;

@@ -28,6 +28,10 @@ defmodule JeangreyWeb.Router do
     scope "/v1" , Api.V1, as: :v1 do
       resources "/users", UserController, only: [:show, :create, :update, :delete]
       resources "/posts", PostController, only: [:index, :show, :create, :update, :delete]
+
+      scope "/posts" do
+        post "/upload", PostController, :upload
+      end
     end
   end
 

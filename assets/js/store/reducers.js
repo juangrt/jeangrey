@@ -18,23 +18,26 @@ let userInitState = JSON.parse(localStorage.getItem('user')) || null;
 export const user = (state = userInitState, action) => {
   switch(action.type) {
     case C.LOG_IN:
-      return action.payload;
+      return action.payload
     case C.LOG_OUT:
-      return null;
+      localStorage.removeItem('user')
+      return null
     default:
-      return state; 
+      return state;
   }
 }
 
 export const errors = (state={}, action) => {
   switch(action.type) {
     case C.ADD_ERROR :
-      let payload = action.payload;
-      return { ...state, payload };
+      let payload = action.payload
+      return { ...state, ...payload }
     case C.CLEAR_ERROR : 
-      return state;
+      let newState = Object.assign({}, state)
+      delete newState[action.payload]
+      return newState
     default: 
-      return state;
+      return state
   }
 }
 

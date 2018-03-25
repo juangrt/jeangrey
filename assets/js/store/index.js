@@ -17,9 +17,11 @@ const consoleMessages = store => next => action => {
 
 }
 
-export default (initialState={}) => {
+const store = ((initialState={}) => {
   return applyMiddleware(thunk,consoleMessages)(createStore)(appReducer, initialState)
-}
+})()
+
+export default store
 
 
 
