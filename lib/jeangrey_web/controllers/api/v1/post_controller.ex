@@ -1,11 +1,11 @@
 defmodule JeangreyWeb.Api.V1.PostController do
   use JeangreyWeb, :controller
+  import JeangreyWeb.Helpers.Controllers
   alias Jeangrey.Content
   alias Jeangrey.Services.AwsService
 
   def index(conn, _params) do
-    pages = [%{title: "foo"}, %{title: "bar"}]
-    json conn, pages
+    json conn, Content.list_posts()
   end
 
   def show(conn, _params) do
@@ -13,7 +13,7 @@ defmodule JeangreyWeb.Api.V1.PostController do
   end
 
   def create(conn, params) do
-    post = Content.create_post(params)
+    post = conn |> current_user |> Content.create_post(params)
     render conn, "post.json" , %{ post: post }
   end
 

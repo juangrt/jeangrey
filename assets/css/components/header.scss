@@ -20,9 +20,12 @@ header {
       li {
         margin-right: 1.5em;
         font-size: 14px;
-        a {
+
+        a , a:focus {
           text-transform: uppercase;
           color: $link-on-primary-color;
+          text-decoration: none;
+
           &:hover {
             color: black;
             font-weight: bold;

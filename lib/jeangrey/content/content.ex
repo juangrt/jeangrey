@@ -6,6 +6,7 @@ defmodule Jeangrey.Content do
   import Ecto.Query, warn: false
   alias Jeangrey.Repo
   alias Jeangrey.Content.Post
+  alias Jeangrey.Accounts.User
 
   @doc """
   Returns the list of users.
@@ -16,14 +17,15 @@ defmodule Jeangrey.Content do
       [%User{}, ...]
 
   """
-  def create_post(params) do
-    post_params = Map.new(params, fn {k, v} -> {String.to_atom(k), v} end)
-    post = Map.merge(%Post{}, post_params)
-    changeset = Post.changeset(post, %{})
-    Repo.insert!(changeset)
+  def create_post(user = %User{}, %{ "title" => title, "body" => body } ) do
+    %Post{}
+    |> Map.merge(%{title: title, body: body})
+    |> Map.merge(%{user: user})
+    |> Post.changeset(%{})
+    |> Repo.insert!
   end
 
-  def list_post do
+  def list_posts do
     Repo.all(Post)
   end
 

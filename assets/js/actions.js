@@ -38,6 +38,30 @@ export const addError = (id, msg, temporary = true) => dispatch => {
   }
 }
 
+export const publishPost = (title, body) => dispatch => {
+  dispatch({type: C.LOADING})
+
+  return new Promise(function(resolve, reject) {
+    axiosInstance.post('/api/v1/posts', {title, body}).then(response => {
+      dispatch({type: C.LOADING_CANCEL})
+      resolve(response)
+    }).catch( error => {
+      dispatch({type: C.LOADING_CANCEL}) 
+      reject(error)
+    })
+  });
+
+}
+
+export const saveDraft = () => dispatch => {
+
+
+}
+
+export const deletePost = () => dispatch => {
+
+}
+
 export const logout = () => dispatch => {
   dispatch({ type: C.LOG_OUT }) 
 }

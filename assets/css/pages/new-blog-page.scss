@@ -16,5 +16,13 @@
     padding-right: 1em;
   }
 
+  .publish-toolbar {
+    display: flex;
+    align-items: center;
+  }
+
+  .buttons button {
+    margin-left: .5em;
+  }
   
 }
