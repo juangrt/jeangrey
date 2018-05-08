@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Router, Switch, Redirect, Route, Link } from 'react-router-dom'
 import history from './services/history'
+import axiosInstance from './services/axios_instance'
 
 import AppHeader from './components/header'
 import AppFooter from './components/footer'
@@ -25,6 +26,7 @@ class Routes extends React.Component {
   constructor(props) {
     super(props)
     this.renderErrors = this.renderErrors.bind(this)
+    axiosInstance.get('/api/v1/auth')
   }
 
   renderErrors() {

@@ -6,6 +6,10 @@ defmodule JeangreyWeb.Api.V1.SessionController do
   alias Jeangrey.Auth.Guardian
   alias JeangreyWeb.Api.V1.ErrorView
 
+  def auth(conn, _) do
+    json conn, %{ success: true }
+  end
+
   def login(conn, %{"email" => email, "password" => password}) do
     Auth.authenticate_user(email, password)
     |> login_reply(conn)

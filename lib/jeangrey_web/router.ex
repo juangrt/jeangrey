@@ -26,8 +26,9 @@ defmodule JeangreyWeb.Router do
   scope "/api", JeangreyWeb , as: :api do
     pipe_through [:api , :auth, :ensure_auth]
     scope "/v1" , Api.V1, as: :v1 do
+      get "/auth", SessionController, :auth
       resources "/users", UserController, only: [:show, :create, :update, :delete]
-      resources "/posts", PostController, only: [:index, :show, :create, :update, :delete]
+      resources "/posts", PostController, only: [:create, :update, :delete]
 
       scope "/posts" do
         post "/upload", PostController, :upload
@@ -39,6 +40,7 @@ defmodule JeangreyWeb.Router do
   scope "/api", JeangreyWeb , as: :api do
     pipe_through [:api , :auth]
     scope "/v1" , Api.V1, as: :v1 do
+      resources "/posts", PostController, only: [:index, :show]
       post "/login", SessionController, :login
       post "/logout", SessionController, :logout
     end
